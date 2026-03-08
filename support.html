@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LeadCapture Pro support and FAQ — answers to the most common questions from agency owners and their clients.">
+  <title>Support &amp; FAQ — LeadCapture Pro</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #ffffff;
+      padding: 40px 20px 80px;
+    }
+
+    .container { max-width: 800px; margin: 0 auto; }
+
+    .site-header {
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+
+    .site-header .product-name {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .intro { color: #6b7280; font-size: 15px; margin-bottom: 8px; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin: 40px 0 12px;
+      display: block;
+    }
+
+    .faq-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .faq-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background 150ms;
+      line-height: 1.4;
+    }
+
+    .faq-question:hover { background: #f9fafb; }
+    .faq-question.open { background: #eff6ff; color: #1d4ed8; }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 300;
+      transition: transform 200ms, background 150ms;
+      color: #374151;
+      line-height: 1;
+    }
+
+    .faq-question.open .faq-icon {
+      background: #2563eb;
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 4px 20px 20px;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.75;
+      background: #fafbff;
+      border-top: 1px solid #e0e7ff;
+    }
+
+    .faq-answer.open { display: block; }
+
+    .faq-answer p { margin: 12px 0; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-answer p:first-child { margin-top: 16px; }
+
+    .faq-answer ol, .faq-answer ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+
+    .faq-answer li { margin-bottom: 8px; }
+
+    .faq-answer code {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 13px;
+      color: #0f172a;
+    }
+
+    .faq-answer .tip {
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 12px 0;
+      font-size: 14px;
+      color: #1e3a8a;
+    }
+
+    .faq-answer a { color: #2563eb; text-decoration: none; }
+    .faq-answer a:hover { text-decoration: underline; }
+
+    .contact-section {
+      margin-top: 64px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 22px;
+      color: #111827;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .contact-section p { color: #6b7280; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
+
+    .contact-btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 150ms;
+    }
+
+    .contact-btn:hover { background: #1d4ed8; text-decoration: none; }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    footer a { color: #9ca3af; }
+    footer a:hover { color: #6b7280; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      .faq-question { font-size: 15px; padding: 16px; }
+      .contact-section { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="site-header">
+      <p class="product-name">LeadCapture Pro — Chrome Extension</p>
+      <h1>Support &amp; FAQ</h1>
+      <p class="intro">Answers to the most common questions from agency owners and their clients.</p>
+    </header>
+
+    <!-- SECTION: Getting Started -->
+    <span class="section-label">Getting Started</span>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I get my GHL API key?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Your GHL API key comes from a Private Integration you create inside GoHighLevel. Here's exactly where to find it:</p>
+          <ol>
+            <li>Log into your GoHighLevel account</li>
+            <li>Go to <strong>Settings</strong> (the gear icon in the bottom-left sidebar)</li>
+            <li>In the left menu, scroll down and click <strong>Integrations</strong></li>
+            <li>Click <strong>Private Integrations</strong></li>
+            <li>Click <strong>+ Create New Integration</strong></li>
+            <li>Give it a name (e.g., "LeadCapture Pro") and enable at minimum these scopes: <code>contacts.read</code>, <code>contacts.write</code>, <code>opportunities.read</code>, <code>opportunities.write</code>, <code>locations.read</code></li>
+            <li>Click <strong>Save</strong> — the API key is shown once. Copy it immediately.</li>
+          </ol>
+          <div class="tip">
+            <strong>Heads up:</strong> GHL API keys are 150+ characters long. If yours looks short, you may have only copied part of it. Use Ctrl+A / Cmd+A in the key field to select all before copying.
+          </div>
+          <p>Paste the key into the extension's Settings page → Step 2 → GHL API Key field.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I find my Location ID?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Your Location ID identifies which GHL sub-account contacts are pushed into. There are two ways to find it:</p>
+          <p><strong>Method 1 — Business Profile page:</strong></p>
+          <ol>
+            <li>Log into GoHighLevel and open the sub-account you want to connect</li>
+            <li>Go to <strong>Settings → Business Profile</strong></li>
+            <li>Scroll to the very bottom of the page</li>
+            <li>Your Location ID is displayed there (looks like <code>aBcDeFgHiJkLmN123456</code>)</li>
+          </ol>
+          <p><strong>Method 2 — URL bar:</strong></p>
+          <p>When inside a sub-account, look at your browser URL:</p>
+          <p><code>https://app.gohighlevel.com/v2/location/<strong>YOUR_LOCATION_ID</strong>/...</code></p>
+          <p>Copy the segment between <code>/location/</code> and the next <code>/</code>.</p>
+          <div class="tip">
+            <strong>Important:</strong> The API key and Location ID must belong to the <em>same</em> sub-account. Mismatching them causes a "403 Access Denied" error during the connection test.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION: Detection -->
+    <span class="section-label">Detection &amp; How It Works</span>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Why isn't it detecting contact info on a specific site?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>A few common causes and fixes:</p>
+          <p><strong>1. Contact info is in an image, not text.</strong> Some sites display phone numbers as images so they can't be selected. Use the "Enter contact manually" button in the sidebar to type it in — it pushes to GHL the same way.</p>
+          <p><strong>2. Strict Content Security Policy (CSP).</strong> Sites like Google, government pages, and banking apps sometimes restrict browser extensions. Click the toolbar icon to open the sidebar directly and use manual entry mode.</p>
+          <p><strong>3. The confidence filter is hiding it.</strong> The extension automatically hides low-confidence detections when higher-quality data exists elsewhere on the page. Scroll through the full page to let dynamic content load, then re-check.</p>
+          <p><strong>4. The page hasn't fully loaded.</strong> On slow or JavaScript-heavy sites, wait a moment for the page to finish rendering, then click the toolbar icon.</p>
+          <div class="tip">
+            To confirm the extension is running, open DevTools (F12) → Console and look for messages starting with <code>[LCP]</code>.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What happens if a contact already exists in GHL?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>LeadCapture Pro checks for duplicates before creating anything. When a match is found you'll see the existing contact's name, when they were added, and their current tags.</p>
+          <p>You have two options:</p>
+          <ul>
+            <li><strong>Update</strong> — fills in any blank fields on the existing contact with new data from the page, and adds new tags additively. Nothing already in GHL gets overwritten.</li>
+            <li><strong>Skip</strong> — dismisses the banner with no changes.</li>
+          </ul>
+          <p>You can also click <strong>Check GHL</strong> before pushing to look up the contact manually without committing to any action.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION: Security & Privacy -->
+    <span class="section-label">Security &amp; Privacy</span>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is my API key secure? Who can see it?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Your API key is stored in Chrome's encrypted sync storage and is never:</p>
+          <ul>
+            <li>Transmitted to our servers (we have none that receive it)</li>
+            <li>Included in the settings export file</li>
+            <li>Accessible to the web pages you visit</li>
+            <li>Logged to the browser console</li>
+          </ul>
+          <p>The extension's architecture ensures only the background service worker — isolated from web page code — ever reads the API key. Content scripts that run inside webpages never see your credentials.</p>
+          <p>The only time your API key leaves your browser is when it's sent directly to GoHighLevel's API (<code>services.leadconnectorhq.com</code>) over an HTTPS connection.</p>
+          <div class="tip">
+            For best security, create a dedicated GHL Private Integration with only the scopes LeadCapture Pro needs. You don't need to share your main GHL admin password.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Does LeadCapture Pro collect or store any contact data?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. We have no servers that receive or store contact data.</p>
+          <p>When you push a contact, the data travels directly from your browser to your GoHighLevel account. We are not in that data path. Detected contact data is held temporarily in your browser's local storage and is deleted automatically when you close the tab or navigate away.</p>
+          <p>See our full <a href="privacy.html">Privacy Policy</a> for complete details.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION: For Agencies -->
+    <span class="section-label">For Agency Owners</span>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I white-label this for my clients?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>White-labeling is built in. Here's the full process:</p>
+          <ol>
+            <li>Open the extension's <strong>Settings page</strong></li>
+            <li>In Step 1, enter your agency name, logo URL (a publicly hosted image), and brand color</li>
+            <li>Go to Step 4 (Advanced) and click <strong>Download Settings JSON</strong></li>
+            <li>Send your clients the extension plus the JSON file</li>
+            <li>Your client installs the extension, goes to Settings → Step 4, clicks <strong>Import Settings JSON</strong>, and selects your file</li>
+            <li>Their sidebar immediately shows your agency branding</li>
+          </ol>
+          <p>After import, your client enters only their own GHL API key in Step 2. API keys are never included in exports — each client's credentials stay private to them.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can I use this with multiple GHL sub-accounts?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>The extension is configured for one active GHL sub-account at a time. For multiple accounts, the easiest approach is:</p>
+          <ul>
+            <li><strong>Separate Chrome profiles</strong> — one per client or sub-account. Each profile has independent extension settings and credentials.</li>
+            <li><strong>Manual switching</strong> — go to Settings, update the API key and Location ID, click "Test Connection" to confirm, then capture.</li>
+          </ul>
+          <p>If you're distributing the extension to multiple clients, each client installs their own copy and enters their own credentials. Credentials are never shared between installations.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Does this work with GHL SaaS Mode?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. LeadCapture Pro connects via the GHL Private Integrations API, which works the same in standard Agency view, SaaS Mode, and white-labeled GHL instances.</p>
+          <p>What matters is that the sub-account has Private Integrations enabled and that you've created a key with the required scopes. SaaS Mode doesn't change this process.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION: Billing & Updates -->
+    <span class="section-label">Billing &amp; Updates</span>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Does this cost extra per contact pushed?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. LeadCapture Pro has no per-contact fees, no usage metering, and no subscription charges of its own. You pay once (or receive it as a bonus), and it works entirely through your existing GoHighLevel account.</p>
+          <p>GoHighLevel's standard Private Integration API is used — the same API your other GHL tools use — and there are no additional GHL charges for API usage at normal volumes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I update the extension to get new features?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Installed from the Chrome Web Store:</strong> Chrome updates extensions automatically within 24–48 hours of a new version being published. To force an immediate update, go to <code>chrome://extensions</code>, turn on Developer mode, and click <strong>Update</strong>.</p>
+          <p><strong>Installed as an unpacked extension:</strong> Download the new version, replace the files in the extension folder, and click the ↺ refresh icon on the extension card in <code>chrome://extensions</code>.</p>
+          <div class="tip">
+            Your settings are preserved across updates. You won't need to re-enter your API key or branding after updating.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contact-section">
+      <h2>Still need help?</h2>
+      <p>Can't find what you're looking for? Send a message and we'll get back to you within one business day.</p>
+      <a href="mailto:support@leadcapturepro.io" class="contact-btn">Email Support</a>
+    </div>
+
+    <footer>
+      <p>LeadCapture Pro &middot; <a href="support.html">Support &amp; FAQ</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; &copy; 2026 LeadCapture Pro</p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var isOpen = btn.classList.contains('open');
+        var answer = btn.nextElementSibling;
+
+        // Close all open items
+        document.querySelectorAll('.faq-question.open').forEach(function(other) {
+          other.classList.remove('open');
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.classList.remove('open');
+        });
+
+        // Toggle clicked item
+        if (!isOpen) {
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
